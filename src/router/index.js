@@ -17,6 +17,11 @@ Vue.use(VueRouter)
     component: Contact
   },
   {
+    path: '/beer/:id',
+    name: 'viewBeer',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Beer.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

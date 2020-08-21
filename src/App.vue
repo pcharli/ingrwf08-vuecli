@@ -1,13 +1,32 @@
 <template>
   <div id="app">
+    <div class="alerte" v-show="showAlerte">Hello {{ nom }}</div>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/contact">Contact</router-link>
+      <router-link to="/contact">Contact</router-link> | 
+      <router-link to="/beer/2">Beer</router-link>
     </div>
-    <router-view/>
+    <router-view @qui="alerte" />
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    alerte(value) {
+      this.nom = value,
+      this.showAlerte = true
+    }
+  },
+  data() {
+    return {
+      nom: "",
+      showAlerte: false
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
